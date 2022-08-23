@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="mt-5"><%= @task.title %></h1>
+  <div class="alert-secondary pt-2 pb-2"><%= @task.details %></div>
+  <p><%= @completed %></p>
+  <br>
+  <%= link_to "Back to tasks", tasks_path %>
+  <br>
+  <%= link_to "Edit", edit_path %>
+  <br>
+  <%= link_to "Delete",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</div>
