@@ -2,7 +2,13 @@
   <h1 class="mt-5">My tasks</h1>
   <ul>
     <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %></li>
+    <li>
+    <% if task.completed == false %>
+      <i id="not-done" class="fa-regular fa-square"></i> <%= link_to task.title, task_path(task) %>
+    <% else %>
+      <i id="done" class="fa-regular fa-square-check"></i> <%= link_to task.title, task_path(task) %>
+    <% end %>
+    </li>
     <% end %>
   </ul>
   <%= link_to 'Add a new task', tasks_new_path %>
